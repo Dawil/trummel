@@ -1,1 +1,7 @@
-<p>Hello</p>
+<ul>
+	<li class="post" data-ng-repeat="feed in feeds()">
+		<h3>{{ feed.title }}</h3>
+		<div data-ng-bind-html-unsafe="feed.content">
+		</div>
+	</li>
+</ul>

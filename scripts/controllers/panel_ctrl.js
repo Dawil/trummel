@@ -1,5 +1,8 @@
+'use strict';
+
 angular.module('trummel')
 	.controller('PanelCtrl',
-		function($scope) {
+		function($scope, wordpress) {
+			$scope.feeds = wordpress.feeds;
 		}
 	);
