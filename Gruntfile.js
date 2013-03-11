@@ -16,6 +16,13 @@ module.exports = function(grunt) {
 				dest: 'main.css'
 			}
 		},
+
+		watch: {
+			src: {
+				files: ['scripts/**/*.js', 'styles/**/*.css', 'index.html'],
+				tasks: ['concat']
+			}
+		}
 	});
 
 	grunt.registerTask('default', 'concat');
