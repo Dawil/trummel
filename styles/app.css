@@ -1,0 +1,9 @@
+.post {
+	width: 300px;
+	float: left;
+	display: block;
+	background: gray;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+}
