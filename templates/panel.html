@@ -1,10 +1,10 @@
-<ul id="tag-list">
+<ul class="unstyled" id="tag-list">
 	<li class="tag-button" data-ng-repeat="tag in tags()">
 	<a class="btn {{ tagClass(tag) }}" data-ng-click="clickTag(tag)">{{ tag.title }}</a>
 		({{ tag.post_count }})
 	</li>
 </ul>
-<ul id="post-list">
+<ul class="unstyled" id="post-list">
 	<li class="post {{ getTags(post) }}"
 			data-ng-repeat="post in posts()">
 		<h3>{{ post.title }}</h3>

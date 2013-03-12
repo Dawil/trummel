@@ -17,11 +17,10 @@ angular.module('trummel')
 			// handle click on tag
 			$scope.clickTag = function(tag) {
 				isotope.toggleTag(tag.id);
-				$("#post-list").isotope({ filter: isotope.getQuery() });
 			};
 			$scope.initIsotope = function(flag) {
 				if (flag) {
-					$("#post-list").isotope({
+					isotope.init("#post-list", {
 						itemSelector: ".post",
 						layoutMode: "masonry",
 					});

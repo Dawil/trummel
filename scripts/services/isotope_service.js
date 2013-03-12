@@ -25,7 +25,7 @@ angular.module('trummel')
 				} else {
 					_tags[tagId] = true;
 				}
-				//_isotope.runFilter( _isotope.getQuery() );
+				_isotope.runFilter( _isotope.getQuery() );
 			},	tagClass: function(tag) {
 				var flag = _tags[tag.id];
 				return flag === true ? "btn-info" :

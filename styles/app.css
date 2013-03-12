@@ -1,8 +1,14 @@
+#post-list, #tag-list {
+	min-width: 400px;
+	max-width: 85%;
+	margin: 10px auto;
+}
+
 .post {
 	width: 250px;
 	float: left;
 	display: block;
-	background: gray;
+	background: rgb(224, 224, 224);
 	padding: 10px;
 	margin: 10px;
 	border-radius: 15px;
