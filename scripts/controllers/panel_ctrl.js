@@ -4,12 +4,12 @@ angular.module('trummel')
 	.controller('PanelCtrl',
 		function($scope, wordpress, isotope) {
 			// wordpress getters
-			$scope.feeds = wordpress.feeds;
+			$scope.posts = wordpress.posts;
 			$scope.tags = wordpress.tags;
 
 			// return tag css classes
-			$scope.getTags = function(feed) {
-				return feed.tags.map(function(tag){
+			$scope.getTags = function(post) {
+				return post.tags.map(function(tag){
 					return 'tag-class-' + tag.slug;
 				}).join(' ');
 			};
@@ -17,6 +17,11 @@ angular.module('trummel')
 			// handle click on tag
 			$scope.clickTag = function(tag) {
 				isotope.toggleTag(tag);
+				$("#post-list").isotope({
+					itemSelector: ".post",
+					layoutMode: "masonry",
+					filter: isotope.getQuery()
+				});
 			};
 
 			// isotope getters

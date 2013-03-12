@@ -4,11 +4,11 @@
 		<a data-ng-click="clickTag(tag)">{{ tag.title }}</a>
 	</li>
 </ul>
-<ul>
-	<li class="post {{ getTags(feed) }}"
-			data-ng-repeat="feed in feeds()">
-		<h3>{{ feed.title }}</h3>
-		<div data-ng-bind-html-unsafe="feed.content">
+<ul id="post-list">
+	<li class="post {{ getTags(post) }}"
+			data-ng-repeat="post in posts()">
+		<h3>{{ post.title }}</h3>
+		<div data-ng-bind-html-unsafe="post.content">
 		</div>
 	</li>
 </ul>
