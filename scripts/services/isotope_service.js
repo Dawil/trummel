@@ -3,34 +3,39 @@ angular.module('trummel')
 		var _tags = {},
 				_selector,
 				_config,
-				_runFilter = function(query) {
-			$(_selector).isotope( {filter: query });
-		}, 	
-				_getQuery = function() {
-			var query = "";
-			for (var tagId in _tags) {
-				if (_tags.hasOwnProperty(tagId)) {
-					query += '.tag-class-' + _tags[tagId].slug;
+				_isotope = {
+			runFilter: function(query) {
+				$(_selector).isotope({ filter: query });
+			}, 	getQuery: function() {
+				var query = "";
+				for (var tagId in _tags) {
+					if (_tags.hasOwnProperty(tagId)) {
+						if (_tags[tagId] === true) {
+							query += '.tag-class-' + tagId;
+						}
+					}
 				}
-			}
-			return query;
-		},
-				_toggleTag = function(tag) {
-			console.log(tag);
-			if ( _tags.hasOwnProperty(tag.id) ) {
-				delete _tags[tag.id];
-			} else {
-				_tags[tag.id] = tag;
-			}
-			_runFilter( _getQuery() );
-		};
-		return {
-			init: function(selector, config) {
+				console.log(query);
+				return query;
+			},	toggleTag: function(tagId) {
+				if (_tags[tagId] === false) {
+					_tags[tagId] = null;
+				} else if (_tags[tagId] === true) {
+					_tags[tagId] = false;
+				} else {
+					_tags[tagId] = true;
+				}
+				//_isotope.runFilter( _isotope.getQuery() );
+			},	tagClass: function(tag) {
+				var flag = _tags[tag.id];
+				return flag === true ? "btn-info" :
+							flag === false ? "btn-warning" :
+															 "btn-link";
+			}, init: function(selector, config) {
 				_selector = selector;
 				_config = config;
 				$(_selector).isotope(_config);
-			},
-			toggleTag: _toggleTag,
-			getQuery: _getQuery
+			}
 		};
+		return _isotope;
 	});

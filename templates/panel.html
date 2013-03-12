@@ -1,7 +1,7 @@
-<p>{{ query() }}</p>
 <ul id="tag-list">
-	<li data-ng-repeat="tag in tags()">
-		<a data-ng-click="clickTag(tag)">{{ tag.title }}</a>
+	<li class="tag-button" data-ng-repeat="tag in tags()">
+	<a class="btn {{ tagClass(tag) }}" data-ng-click="clickTag(tag)">{{ tag.title }}</a>
+		({{ tag.post_count }})
 	</li>
 </ul>
 <ul id="post-list">
@@ -10,5 +10,6 @@
 		<h3>{{ post.title }}</h3>
 		<div data-ng-bind-html-unsafe="post.content">
 		</div>
+		{{ initIsotope($last) }}
 	</li>
 </ul>
