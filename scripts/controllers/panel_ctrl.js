@@ -7,6 +7,9 @@ angular.module('trummel')
 			$scope.posts = wordpress.posts;
 			$scope.tags = wordpress.tags;
 
+			$scope.tagColumns = "span2";
+			$scope.postColumns = "span10";
+
 			// return tag css classes
 			$scope.getTags = function(post) {
 				return post.tags.map(function(tag){
