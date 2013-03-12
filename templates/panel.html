@@ -1,5 +1,12 @@
+<p>{{ query() }}</p>
+<ul id="tag-list">
+	<li data-ng-repeat="tag in tags()">
+		<a data-ng-click="clickTag(tag)">{{ tag.title }}</a>
+	</li>
+</ul>
 <ul>
-	<li class="post" data-ng-repeat="feed in feeds()">
+	<li class="post {{ getTags(feed) }}"
+			data-ng-repeat="feed in feeds()">
 		<h3>{{ feed.title }}</h3>
 		<div data-ng-bind-html-unsafe="feed.content">
 		</div>
