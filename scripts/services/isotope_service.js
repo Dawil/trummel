@@ -12,6 +12,8 @@ angular.module('trummel')
 					if (_tags.hasOwnProperty(tagId)) {
 						if (_tags[tagId] === true) {
 							query += '.tag-class-' + tagId;
+						} else if(_tags[tagId] === false) {
+							query += ':not(.tag-class-' + tagId + ')';
 						}
 					}
 				}
