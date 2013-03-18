@@ -1,7 +1,10 @@
 #!/bin/sh
 
 echo Running deploy script. Will merge master into gh-pages, add main.js and main.css, then push to gh-pages.
-if [ -z `git status | grep 'nothing to commit'` ]
+
+STATUS=`git status | grep 'nothing to commit'`
+echo $STATUS
+if [ -z "$STATUS" ]
 then
 	echo things to commit
 else
