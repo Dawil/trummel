@@ -23,9 +23,12 @@ angular.module('trummel')
 			};
 			$scope.initIsotope = function(flag) {
 				if (flag) {
-					isotope.init("#post-list", {
-						itemSelector: ".post",
-						layoutMode: "masonry",
+					var postList = "#post-list";
+					$(postList).imagesLoaded(function(){
+						isotope.init(postList, {
+							itemSelector: ".post",
+							layoutMode: "masonry",
+						});
 					});
 				}
 			};

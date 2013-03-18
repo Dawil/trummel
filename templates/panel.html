@@ -11,6 +11,10 @@
 		<li class="post {{ getTags(post) }}"
 				data-ng-repeat="post in posts()">
 			<h3>{{ post.title }}</h3>
+			<p><i>Tags:  <span data-ng-repeat="tag in post.tags">
+									{{ tag.title }}
+							</span></i>
+			</p>
 			<div data-ng-bind-html-unsafe="post.content">
 			</div>
 			{{ initIsotope($last) }}
